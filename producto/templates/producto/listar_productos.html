@@ -1,0 +1,34 @@
+    {% extends "base.html" %}
+
+    {% block texto_pestania  %}
+        Listar Productos
+    {% endblock  %}
+ 
+        {% block header_h1%}
+        LISTADO DE PRODUCTOS
+        {% endblock %}
+
+    {% block contenido %}
+
+    <form action={% url "producto:listar_productos" %} method='get'>
+        {{formulario}}
+         <input type="submit" value="Filtrar">
+    </form>
+
+        {% if  productos %}
+        <ul>
+            {% for producto in productos %}
+            <li>
+
+                <a href={% url "producto:detalle" producto.id %}> {{ producto.nombre }} </a> |
+                {% comment %} <a href={% url "producto:editar" producto.id %}>Editar</a> | {% endcomment %}
+                <a href={% url "producto:actualizar" producto.id %}>Actualizar</a> |
+                <a href={% url "producto:eliminar" producto.id %}>Eliminar</a>
+
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No hay productos para mostrar</p>
+        {% endif %}
+    {% endblock %}

@@ -1,0 +1,26 @@
+    {% extends "base.html" %}
+
+    {% block texto_pestania  %}
+        Crear producto
+    {% endblock  %}
+
+        {% block header_h1%}
+        CREAR PRODUCTOS
+        {% endblock %}
+
+
+    {% block contenido %}
+        <form action="{% url 'producto:crear_producto' %}" method="post">
+            {% csrf_token %}
+
+            {% comment %} <label for="producto">Nombre: </label>
+            <input type = "text" name = nombre>
+            <label for="descripcion">Descripcion: </label>
+            <input type = "text" name = descripcion> {% endcomment %}
+
+            {{formulario}}
+        
+            <input type = "Submit" value = "Crear">
+            {% comment %} <button>Crear</button>   {% endcomment %}
+        </form>
+    {% endblock %}

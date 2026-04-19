@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+    {% block texto_pestania  %}
+        Actualizar producto
+    {% endblock  %}
+
+        {% block header_h1%}
+        ACTUALIZAR PRODUCTOS
+        {% endblock %}
+
+
+    {% block contenido %}
+        <form action="{% url 'producto:actualizar' producto.id %}" method="post">
+            {% csrf_token %}
+
+            {{formulario}}
+        
+            <input type = "Submit" value = "Actualizar">
+        </form>
+    {% endblock %}

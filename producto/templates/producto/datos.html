@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos</title>
+</head>
+<body>
+    
+    {% comment %} {{numeros}} {% endcomment %}
+
+    {% comment %} {% for numero in numeros %}
+        <p>{{numero}}</p>
+    {% endfor %} {% endcomment %}
+
+    {% if  numeros %}
+    <ul>
+        {% for numero in numeros %}
+            {% if numero|divisibleby:2 %}
+            <li style="color: red">
+            {% else %}
+            <li style="color: blue">
+            {% endif %}   
+            {{numero}}
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay números para mostrar</p>
+    {% endif %}
+</body>
+</html>
